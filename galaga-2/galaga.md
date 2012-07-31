@@ -24,3 +24,37 @@ If you don't have your project from Lesson 1:
 * Download the [demo files](https://github.com/kristjan/Lesson-Plans/blob/galaga_part_deux/galaga-2/demo-files.zip?raw=true)
 * Unzip them
 * Open `galaga.gmk`
+
+## Stop invading my space
+
+Last time we had some trouble keeping the ship from wandering off the screen.
+Let's put a stop to that with a little movement logic.
+
+1. Open up the ship object properties by double-clicking on your `ship` object.
+1. For the `<Left>` key event, add a new
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-question.png)
+   Test Question action from the `control` tab:
+    * Set the expression to `x >= 10`
+    * Drag it above the existing
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
+   action
+1. Now add an ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png)
+   Else below the
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
+1. Back on the `move` tab, add another
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
+   Fixed action under the
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png) Else
+    * Set it to no direction
+    * Set speed to `0`
+
+    ![](https://github.com/downloads/kristjan/Lesson-Plans/stop-at-boundary.png)
+1. Now repeat steps 1-4 for the `<Right>` key
+    * The
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-question.png)
+   Test Question's expression this time will be `x <= 608`
+
+![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) Run your game
+and try to fly your ship off the screen to the left or right. Now it should stop
+when it hits the edge.
+
