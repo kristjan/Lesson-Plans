@@ -32,8 +32,8 @@ Let's put a stop to that with a little movement logic.
 
 1. Open up the ship object properties by double-clicking on your `ship` object.
 1. For the `<Left>` key event, add a new
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-question.png)
-   Test Question action from the `control` tab:
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
+   Test Expression action from the `control` tab:
     * Set the expression to `x >= 10`
     * Drag it above the existing
    ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
@@ -51,10 +51,47 @@ Let's put a stop to that with a little movement logic.
     ![](https://github.com/downloads/kristjan/Lesson-Plans/stop-at-boundary.png)
 1. Now repeat steps 1-4 for the `<Right>` key
     * The
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-question.png)
-   Test Question's expression this time will be `x <= 608`
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
+   Test Expression's expression this time will be `x <= 608`
 
 ![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) Run your game
 and try to fly your ship off the screen to the left or right. Now it should stop
 when it hits the edge.
 
+## Run away!
+
+The baddies are pretty easy to hit; let's have them fly back and forth.
+
+### Moving
+
+1. Open the baddie1 object properties by double-clicking the `baddie1` object.
+1. On the ![](https://github.com/downloads/kristjan/Lesson-Plans/create.png)
+   event, add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/speed-horizontal.png)
+   Speed Horizontal move action
+    * Set the speed to 3
+
+Now the baddies will all fly to the right, right off the screen!
+
+### Zig Zag
+
+To make the baddies move back and forth, we can do a similar thing to how we
+stopped our spaceship from flying off the screen.
+
+1. Add an
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/intersect-boundary.png)
+   Intersect Boundary event to `baddie1`. This event will fire whenever a baddie
+   touches the edge of the room.
+1. From the `control` tab, add our good friend
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
+   Test Expression
+    * Set the expression to `x >= 608`, which is when the baddie is touching the
+     edge of the room.
+1. Add an
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/execute-code.png)
+   Execute Code action
+    * Set the object to `baddie1` to affect _every_ instance of the baddies
+    * Type into the code `speed = -3` so the baddies will start moving left
+1. Repeat steps 2 and 3 for the left side of the screen
+    * The expression for the left side is `x <= 0`
+    * This time, set `speed = 3` to move back to the right
