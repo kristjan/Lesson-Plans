@@ -19,8 +19,6 @@ This tutorial builds more action and adventure onto the
 
 ## Open the project
 
-If you don't have your project from Lesson 1:
-
 * Download the [demo files](https://github.com/kristjan/Lesson-Plans/blob/galaga_part_deux/galaga-2/demo-files.zip?raw=true)
 * Unzip them
 * Open `galaga.gmk`
