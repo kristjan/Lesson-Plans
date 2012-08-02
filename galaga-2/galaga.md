@@ -93,3 +93,79 @@ stopped our spaceship from flying off the screen.
 1. Repeat steps 2 and 3 for the left side of the screen
     * The expression for the left side is `x <= 0`
     * This time, set `speed = 3` to move back to the right
+
+
+## Firepower
+
+It doesn't seem fair that we can take our sweet time blowing defenseless aliens
+out of the sky. Let's give them some artillery too.
+
+### Ready!
+
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-sprite.png)
+   New Sprite. A window will pop up.
+    * Name the sprite `badMissile`.
+    * Click on _Load Sprite_ and open the file `sprite/badMissile.png`
+    * Make sure _Transparent_ is checked
+    * Click OK
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-object.png)
+   New Object. A window will pop up.
+    * Call the new object `badMissile`
+    * Select the `badMissile` sprite from the dropdown list
+
+### Aim!
+
+1. Open the baddie1 object properties by double-clicking the `baddie1` object.
+    * Click on the _Add Event_ button and add a
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/step.png) Step
+      event. This will run every "step" of the game.
+    * Drag a
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/test-chance.png)
+      Test Chance from the `control` tab
+        * Set `sides` to 500 so the baddies fire randomly every 500 steps,
+          which is about a second.
+        * Click OK
+    * Drag a
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
+      Create Instance from `main1` underneath the
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/test-chance.png)
+      Test Chance
+        * Select `badMissile` from the `object` dropdown
+        * Click OK
+1. Open the badMissile object properties by double-clicking the `badMissile`
+   object.
+1. Click _Add Event_ and add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/create.png) Create
+   event
+1. Drag in a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png)
+   Move action
+    * Set the direction to Down
+    * Set `speed` to 10
+1. Click _Add Event_ and add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/collision.png)
+   Collision event with your `ship`.
+1. Drag in two
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy-instance.png)
+   Destroy Instance actions
+    * Set one to `self` to blow up the missile
+    * Set one to `other` to blow up the ship
+
+### Fire!
+
+1. Open the ship object properties by double-clicking the `ship` object.
+1. Click _Add Event_ and add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy.png) Destroy
+   event
+1. Drag in a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
+   Create Instance action
+    * Set `object` to `explosion`
+    * Set `x` and `y` to -20
+    * Check `relative`
+
+Now when the `badMissile` hits your `ship`, it explodes!
+![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) Run your game
+and get out of the way!
