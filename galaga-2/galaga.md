@@ -133,6 +133,7 @@ out of the sky. Let's give them some artillery too.
       ![](https://github.com/downloads/kristjan/Lesson-Plans/test-chance.png)
       Test Chance
         * Select `badMissile` from the `object` dropdown
+        * Make sure to check `relative`
         * Click OK
 1. Open the badMissile object properties by double-clicking the `badMissile`
    object.
