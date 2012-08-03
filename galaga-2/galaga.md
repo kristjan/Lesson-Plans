@@ -43,7 +43,7 @@ Let's put a stop to that with a little movement logic.
    ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
    Fixed action under the
    ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png) Else
-    * Set it to no direction
+    * Set it to `stop` direction
     * Set speed to `0`
 
     ![](https://github.com/downloads/kristjan/Lesson-Plans/stop-at-boundary.png)
