@@ -35,6 +35,7 @@ Let's put a stop to that with a little movement logic.
    ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
    **Test Expression** action from the `control` tab
     * ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression-location.png)
+    * Leave _Applies to_ on `self`
     * Set the expression to `x >= 10`
     * Drag it above the existing
       ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) **Move
