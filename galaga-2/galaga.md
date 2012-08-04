@@ -83,7 +83,7 @@ To make the baddies move back and forth, we can do a similar thing to how we
 stopped our spaceship from flying off the screen.
 
 1. Still with the `baddie1` properties open, click _Add Event_ and add
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/intersect-boundary.png)
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/other.png)
    _Other > Intersect Boundary_ to `baddie1`. This event will fire whenever a
    baddie touches the edge of the room.
 1. From the `control` tab, add our good friend
@@ -165,6 +165,14 @@ out of the sky. Let's give them some artillery too.
     * Set speed to `10`
     * Click OK
     * ![](https://github.com/downloads/kristjan/Lesson-Plans/bad-missile-properties.png)
+1. Click _Add Event_ and add an
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/other.png) _Other >
+   Outside Room_ event
+1. Drag in a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy-instance.png)
+   **Destroy Instance** action
+   * Set _Applies to_ to `self`
+
 1. Click _Add Event_ and add a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/collision.png)
    _Collision_ event with your `ship`.
