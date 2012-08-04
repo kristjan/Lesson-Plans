@@ -202,3 +202,73 @@ out of the sky. Let's give them some artillery too.
 Now when the `badMissile` hits your `ship`, it explodes!
 ![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) **Run** your
 game and get out of the way!
+
+## Winning and Losing
+
+### Can't win 'em all
+
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-sprite.png)
+   **New Sprite**. A window will pop up.
+    * Name the sprite `gameOver`.
+    * Click on _Load Sprite_ and open the file `sprite/gameOver.png` from
+      inside the demo files
+    * Make sure _Transparent_ is checked
+    * Click OK
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-object.png)
+   **New Object**. A window will pop up.
+    * Call the new object `gameOver`
+    * Select the `gameOver` sprite from the dropdown list
+    * Click OK
+1. Open the badMissile object properties by double-clicking the `badMissile`
+   object.
+1. On the ![](https://github.com/downloads/kristjan/Lesson-Plans/collision.png)
+   _Collision_ event with your `ship`, add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
+   **Create Instance** from `main1`
+    * Set object to `gameOver`
+    * Set x to `130`
+    * Set y to `500`
+    * Click OK
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/create-game-over.png)
+1. Click OK again to save the badMissile properties
+
+
+### Hooray!
+
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-sprite.png)
+   **New Sprite**. A window will pop up.
+    * Name the sprite `youWin`.
+    * Click on _Load Sprite_ and open the file `sprite/youWin.png` from
+      inside the demo files
+    * Make sure _Transparent_ is checked
+    * Click OK
+1. Create a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/new-object.png)
+   **New Object**. A window will pop up.
+    * Call the new object `youWin`
+    * Select the `youWin` sprite from the dropdown list
+    * Click OK
+1. Open the goodMissile object properties by double-clicking the `goodMissile`
+   object.
+1. Select the ![](https://github.com/downloads/kristjan/Lesson-Plans/collision.png)
+   _Collision_ event with `baddie1`
+1. Add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/test-instance-count.png)
+   **Test Instance Count** action from `control`
+    * Set the object to `baddie1`
+    * Leave number at `0`
+    * Leave operation at `Equal to`
+    * Click OK
+1. Add a
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
+   **Create Instance** from `main1`
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/good-missile-collision.png)
+    * Set object to `youWin`
+    * Set x to `175`
+    * Set y to `100`
+    * Click OK
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/create-you-win.png)
+1. Click OK again to save the goodMissile properties
