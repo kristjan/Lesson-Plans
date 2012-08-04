@@ -98,7 +98,7 @@ stopped our spaceship from flying off the screen.
       instance of the baddies
     * Type into the code editor `speed = -3` so the baddies will start moving
       left
-    * Click the ![]() check to save
+    * Click the ![](https://github.com/downloads/kristjan/Lesson-Plans/check.png) check to save
 1. Repeat steps 2 and 3 for when the baddies touch the left side of the screen
     * The expression for the left side is `x <= 0`
     * This time, set `speed = 3` to move back to the right
