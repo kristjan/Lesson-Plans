@@ -21,7 +21,9 @@ This tutorial builds more action and adventure onto the
 
 * Download the [demo files](https://github.com/kristjan/Lesson-Plans/blob/galaga_part_deux/galaga-2/demo-files.zip?raw=true)
 * Unzip them
-* Open `galaga.gmk`
+* Open up Game Maker
+* From the **File** menu, select **Open**, browse to where you unzipped the files,
+  and open `galaga.gmk`
 
 ## Stop invading my space
 
@@ -29,32 +31,36 @@ Last time we had some trouble keeping the ship from wandering off the screen.
 Let's put a stop to that with a little movement logic.
 
 1. Open up the ship object properties by double-clicking on your `ship` object.
-1. For the `<Left>` key event, add a new
+1. For the `<Left>` key event, drag a new
    ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
-   Test Expression action from the `control` tab:
+   **Test Expression** action from the `control` tab
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression-location.png)
     * Set the expression to `x >= 10`
     * Drag it above the existing
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
-   action
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) **Move
+      Fixed** action
 1. Now add an ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png)
-   Else below the
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
+   **Else** below the
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) **Move
+   Fixed**
 1. Back on the `move` tab, add another
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) Move
-   Fixed action under the
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png) Else
-    * Set it to `stop` direction
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png) **Move
+   Fixed** action under the
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/else.png) **Else**
+    * Leave _Applies to_ on `self`
+    * Set the direction to `stop`
     * Set speed to `0`
-
-    ![](https://github.com/downloads/kristjan/Lesson-Plans/stop-at-boundary.png)
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/no-moving.png)
 1. Now repeat steps 1-4 for the `<Right>` key
     * The
    ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
-   Test Expression's expression this time will be `x <= 608`
+   **Test Expression**'s expression this time will be `x <= 608`
 
-![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) Run your game
-and try to fly your ship off the screen to the left or right. Now it should stop
-when it hits the edge.
+    ![](https://github.com/downloads/kristjan/Lesson-Plans/stop-at-boundary.png)
+
+![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) **Run** your
+game and try to fly your ship off the screen to the left or right. Now it should
+stop when it hits the edge.
 
 ## Run away!
 
@@ -66,8 +72,8 @@ The baddies are pretty easy to hit; let's have them fly back and forth.
 1. On the ![](https://github.com/downloads/kristjan/Lesson-Plans/create.png)
    event, add a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/speed-horizontal.png)
-   Speed Horizontal move action
-    * Set the speed to 3
+   **Speed Horizontal** move action anywhere
+    * Set the speed to `3`
 
 Now the baddies will all fly to the right, right off the screen!
 
@@ -76,24 +82,31 @@ Now the baddies will all fly to the right, right off the screen!
 To make the baddies move back and forth, we can do a similar thing to how we
 stopped our spaceship from flying off the screen.
 
-1. Add an
+1. Still with the `baddie1` properties open, click _Add Event_ and add
    ![](https://github.com/downloads/kristjan/Lesson-Plans/intersect-boundary.png)
-   Intersect Boundary event to `baddie1`. This event will fire whenever a baddie
-   touches the edge of the room.
+   _Other > Intersect Boundary_ to `baddie1`. This event will fire whenever a
+   baddie touches the edge of the room.
 1. From the `control` tab, add our good friend
    ![](https://github.com/downloads/kristjan/Lesson-Plans/test-expression.png)
-   Test Expression
+   **Test Expression**
     * Set the expression to `x >= 608`, which is when the baddie is touching the
-     edge of the room.
+     right edge of the room.
 1. Add an
    ![](https://github.com/downloads/kristjan/Lesson-Plans/execute-code.png)
-   Execute Code action
-    * Set the object to `baddie1` to affect _every_ instance of the baddies
-    * Type into the code `speed = -3` so the baddies will start moving left
-1. Repeat steps 2 and 3 for the left side of the screen
+   **Execute Code** action
+    * Click on _Object_ in the top right and select `baddie1` to affect every
+      instance of the baddies
+    * Type into the code editor `speed = -3` so the baddies will start moving
+      left
+    * Click the ![]() check to save
+1. Repeat steps 2 and 3 for when the baddies touch the left side of the screen
     * The expression for the left side is `x <= 0`
     * This time, set `speed = 3` to move back to the right
 
+![](https://github.com/downloads/kristjan/Lesson-Plans/boundary-logic.png)
+
+
+Now everyone flies back and forth!
 
 ## Firepower
 
@@ -104,69 +117,80 @@ out of the sky. Let's give them some artillery too.
 
 1. Create a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/new-sprite.png)
-   New Sprite. A window will pop up.
+   **New Sprite**. A window will pop up.
     * Name the sprite `badMissile`.
-    * Click on _Load Sprite_ and open the file `sprite/badMissile.png`
+    * Click on _Load Sprite_ and open the file `sprite/badMissile.png` from
+      inside the demo files
     * Make sure _Transparent_ is checked
     * Click OK
 1. Create a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/new-object.png)
-   New Object. A window will pop up.
+   **New Object**. A window will pop up.
     * Call the new object `badMissile`
     * Select the `badMissile` sprite from the dropdown list
+    * Click OK
 
 ### Aim!
 
-1. Open the baddie1 object properties by double-clicking the `baddie1` object.
+1. Open the baddie1 object properties by double-clicking the `baddie1` object
+   (not the sprite!).
     * Click on the _Add Event_ button and add a
-      ![](https://github.com/downloads/kristjan/Lesson-Plans/step.png) Step
-      event. This will run every "step" of the game.
+      ![](https://github.com/downloads/kristjan/Lesson-Plans/step.png) _Step >
+      Step_ event. This will run every step of the game loop.
     * Drag a
       ![](https://github.com/downloads/kristjan/Lesson-Plans/test-chance.png)
-      Test Chance from the `control` tab
-        * Set `sides` to 500 so the baddies fire randomly every 500 steps,
-          which is about a second.
+      **Test Chance** from the `control` tab
+        * Set sides on the die to `500` so the baddies fire randomly about every
+          500 steps, which is once a second or so.
         * Click OK
     * Drag a
       ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
-      Create Instance from `main1` underneath the
+      **Create Instance** from `main1` underneath the
       ![](https://github.com/downloads/kristjan/Lesson-Plans/test-chance.png)
-      Test Chance
-        * Select `badMissile` from the `object` dropdown
+      **Test Chance**
+        * Select _Object_ and pick `badMissile` from the dropdown
         * Make sure to check `relative`
         * Click OK
+        * Click OK again to close the baddie properties
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/create-bad-missile.png)
 1. Open the badMissile object properties by double-clicking the `badMissile`
    object.
 1. Click _Add Event_ and add a
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/create.png) Create
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/create.png) **Create**
    event
 1. Drag in a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/move-fixed.png)
-   Move action
+   **Move Fixed** action
     * Set the direction to Down
-    * Set `speed` to 10
+    * Set speed to `10`
+    * Click OK
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/bad-missile-properties.png)
 1. Click _Add Event_ and add a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/collision.png)
-   Collision event with your `ship`.
+   _Collision_ event with your `ship`.
 1. Drag in two
    ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy-instance.png)
-   Destroy Instance actions
+   **Destroy Instance** actions from the `main1` tab
     * Set one to `self` to blow up the missile
     * Set one to `other` to blow up the ship
+    * Click OK to close the missile properties
 
 ### Fire!
 
 1. Open the ship object properties by double-clicking the `ship` object.
 1. Click _Add Event_ and add a
-   ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy.png) Destroy
-   event
+   ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy.png)
+   **Destroy** event
 1. Drag in a
    ![](https://github.com/downloads/kristjan/Lesson-Plans/create-instance.png)
-   Create Instance action
-    * Set `object` to `explosion`
-    * Set `x` and `y` to -20
+   **Create Instance** action from the `main1` tab
+    * Set object to `explosion`
+    * Set x and y to `-20`
     * Check `relative`
+    * Click OK
+    * ![](https://github.com/downloads/kristjan/Lesson-Plans/destroy-ship.png)
+1. Click OK again to save the ship properties
 
 Now when the `badMissile` hits your `ship`, it explodes!
-![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) Run your game
-and get out of the way!
+![](https://github.com/downloads/kristjan/Lesson-Plans/run.png) **Run** your
+game and get out of the way!
